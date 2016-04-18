@@ -8,17 +8,17 @@ I ::=   "title:    Astrobot\n"
       ^ "created:  18/04/2016"
 ;
 
-S ::= "<B>" \SegnoLatino ":</B> <I>" Mese "</I>"
+S ::= "<B>" \SegnoLatino.{{segno}} ":</B> <I>" Mese.{{segno}} "</I>"
       "\n\n" "<I>" Saluto "</I>"
       (* "\n\n" Oroscopo *)
 ;
 
 PM ::= ^"."\ ;
 
-ChiaveSegno := SegnoLatino;
+ChiaveSegno := SegnoLatino.{{segno}};
 
 
- Saluto ::= \ ("cari " \Segno.ariete.std | ({cari \Segno.ariete.vezz.M} e {care \Segno.ariete.vezz.F}).NOart) ^"," 
+ Saluto ::= \ ("cari " \Segno.{{segno}}.std | ({cari \Segno.{{segno}}.vezz.M} e {care \Segno.{{segno}}.vezz.F}).NOart) ^"," 
 ; 
 
 
@@ -101,12 +101,11 @@ Oroscopo ::=
 ;
 
 Rito ::= un [sano | bel | serio | sacro] rito
-         ( orgiastico | esoterico | divinatorio | settario | sacrificale
-         | massonico | enochiano | ["pre-"^]noaico | diabolico | infernale | zoroastriano
-         | qabalistico | alchemico | tantrico | magico | stigmatico
+         ( esoterico | divinatorio | sacrificale
+         | qabalistico | alchemico | tantrico | magico
          )
-         [ propiziatorio | di buon auspicio | di malaugurio | iniziatico | di sangue
-         | simbolico | infedele
+         [ propiziatorio | di buon auspicio | di malaugurio | iniziatico 
+         | simbolico 
          ]
 ;
 
@@ -115,7 +114,6 @@ Dio ::= >> <(al: a | del: di | art: _)
                     | ^ta "Madre Teresa" [di "Calcutta"] | "Tommaso" ["d'Aquino"]
                     | "Zaccaria" | ^"nt'Agostino" | ^"nta Rosa da Lima" | "Pietro"
                     ) [apostolo]
-            | "Helder" | "Allah"
             )
          | <(al: alla | del: della | art: la)
             ( "Madonna" del ("Carmine" | \[sacro]^cuore | "Gesu'")
@@ -123,36 +121,21 @@ Dio ::= >> <(al: a | del: di | art: _)
             )
          | <(al: al | del: del | art: il)
             ( profeta ("Isaia" | "Geremia" | "Ezechiele" | "Abramo" | "Elia")
-            | maestro ("Baba Bedi" | "Sai Baba" | "Buddha" | "Jukey" | "Ryuken")
-            | "Dalai Lama"
-            |+ mago ( "Alexander" | "du Nacimiento" <[^"," maestro di vita]
-                    | "Othelma" | "Oronzo" | "Silvan" | "Oudini'" | "Gabriel"
-                    | "Zurli'" <["("^il mago del (lune | marte | mercole | giove | vener)^"di')"]
-                    | "Galbusera" <["(il mago della sera)"] | "Giucas Casella"
-                    )
             | dio ( Astro.NOart | "Zeus" | "Osiride" | "Zoroastro" | "Ade" | "Apollo"
-                  | "Apelle" [figlio di "Apollo"
-                    [che^"," non dimenticate^"," fece un palla di pelle di pollo]]
-                  | "Oberon" | "Balo" | "Mabelrode"
+                  | "Oberon" | "Balo" 
                   )
             | demone ( "Aamon" | "Astaroth" | "Astarte" | "Shemazai" | "Samael" | "Aiwass"
                      | "Belzebub" | "Arioch" | "Baal"
                      )
-            )
-         | <(al: all'^ | del: dell'^ | art: l'^)
-            ( [arc^]angelo ("Michele" | "Gabriele" | "Uriel" | "Raffaele")
-            | apostolo ( "Paolo" | "Simon" (^e | "Pietro") | "Pietro" | "Giuda" | "Giovanni"
-                       | "Giacomo"
-                       )
             )
         <<
 ;
 
 Compatibilita ::= (notevole | forte | scarsa | debole | infima)
                   ([in^]compatibilita' | affinita')
-                  [zodiacale | ormonale | spirituale | dentale]
+                  [zodiacale | irrazionale | spirituale | chimica | imprevista]
                   [ in amore | nel lavoro | nella vita | nelle questioni di cuore
-                  | negli affari | nelle amicizie | nelle inimicizie
+                  | negli affari | nelle amicizie | combinare guai
                   ]
                   con Nati
 ;
@@ -168,7 +151,7 @@ Amuleto ::= Pietra
               )
               {[InCompagnia]}
               { nelle (occasioni | serate | notti) [piu' | meno]
-                ( di gala | uggiose | limacciose | [s^]gradevoli | umide | avventurose
+                ( uggiose | [s^]gradevoli | avventurose
                 | speciali | di classe
                 )
               | DoveAndare
@@ -421,8 +404,8 @@ Affetti ::= (negli affetti | nelle questioni di cuore | in amore)^"," [Sforzo^",
                 )
                 ( il partner [perduto | [in^]dimenticato]
                 | > >> l'amante
-                     | la (babbiona | sgualdrina | mignotta | donnaccia | bagascia)
-                     | il (mignottone | frocio | pappa | maledetto | partner)
+                     | la ("mente pazza"  | "persona manipolatrice" | "cattiva compagnia")
+                     | il (pazzo | (pericolosissimo |grande ) amore  | maledetto | partner)
                     <<
                     che (vi ha | avete) Lasciato.S
                 )

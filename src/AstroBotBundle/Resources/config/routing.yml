@@ -1,0 +1,3 @@
+astro_bot_homepage:
+    path:     /
+    defaults: { _controller: AstroBotBundle:Default:index }
