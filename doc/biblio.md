@@ -6,3 +6,10 @@
 
 
 # https://en.wikipedia.org/wiki/Astrological_sign
+
+
+Plugin and scripts
+
+http://www.astrowin.org/php_scripts/
+
+https://wordpress.org/plugins/current-planetary-positions/
