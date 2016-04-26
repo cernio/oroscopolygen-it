@@ -8,18 +8,18 @@
 
 namespace AstroBotBundle\Utils\AstroDefinitions;
 
-const S_ARIES = 'Aries';
-const S_TAURUS = 'Taurus';
-const S_GEMINI = 'Gemini';
-const S_CANCER = 'Cancer';
-const S_LEO = 'Leo';
-const S_VIRGO = 'Virgo';
-const S_LIBRA = 'Libra';
-const S_SCORPIO = 'Scorpio';
-const S_SAGITTARIUS = 'Sagittarius';
-const S_CAPRICORN = 'Capricorn';
-const S_ACQUARIUS = 'Acquarium';
-const S_PISCES = 'Pisces';
+const S_ARIES = 'aries';
+const S_TAURUS = 'taurus';
+const S_GEMINI = 'gemini';
+const S_CANCER = 'cancer';
+const S_LEO = 'leo';
+const S_VIRGO = 'virgo';
+const S_LIBRA = 'libra';
+const S_SCORPIO = 'scorpio';
+const S_SAGITTARIUS = 'sagittarius';
+const S_CAPRICORN = 'capricorn';
+const S_ACQUARIUS = 'acquarium';
+const S_PISCES = 'pisces';
 
 const SIGN_LONGITUDE_MIN_ANGLE = [
     S_ARIES => 0,
@@ -53,8 +53,20 @@ const C_CARDINAL = 0;
 const C_FIXED = 1;
 const C_MUTABLE = 2;
 
+/**
+ * Cardinal Signs: Aries, Cancer, Libra, Capricorn
+Fixed Signs: Taurus, Leo, Scorpio, Aquarius
+Mutable Signs: Gemini. Virgo, Sagittarius, Pisces
 
-const TRIPLICITY_CARDINAL=[
+Cardinal signs are energetic, dynamic and proactive.
+Fixed signs are persistence, perseverant, stabile.
+Mutable signs are flexible, changeable, adaptable, suggestible.
+ */
+const KEYWORDS_C_CARDINAL = ['energy','dynamism','proactivity'];
+const KEYWORDS_C_FIXED = ['persistence','perseverance','stability'];
+const KEYWORDS_C_MUTABLE = ['change', 'adaptation', 'suggestibility'];
+
+const TRIPLICITY=[
     S_ARIES=>C_CARDINAL,
     S_CAPRICORN=>C_CARDINAL,
     S_LIBRA=>C_CARDINAL,
@@ -69,7 +81,7 @@ const TRIPLICITY_CARDINAL=[
     S_PISCES=>C_MUTABLE
 ];
 
-const TRIPLICITY_ELEMENT=[
+const ELEMENTALITY=[
     S_ARIES=>E_FIRE,
     S_LEO=>E_FIRE,
     S_SAGITTARIUS=>E_FIRE,
@@ -83,6 +95,11 @@ const TRIPLICITY_ELEMENT=[
     S_SCORPIO=>E_WATER,
     S_PISCES=>E_WATER,
 ];
+
+const KETYWORDS_E_EARTH=['pragma','stability','matter','rule','ground'];
+const KETYWORDS_E_AIR=['sensation','perception','expression','interaction'];
+const KETYWORDS_E_FIRE=['energy','faith','enthusiasm','encouragement','drive'];
+const KETYWORDS_E_WATER=['healing','empathy','cool','flow','clean'];
 
 const RULING_CELESTIALBODY_CLASSICAL = [
     S_ARIES => P_MARS,

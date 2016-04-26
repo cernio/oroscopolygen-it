@@ -1,3 +1,8 @@
-astro_bot_homepage:
-    path:     /
-    defaults: { _controller: AstroBotBundle:Default:index }
+#astro_bot_homepage:
+#    path:     /
+#    defaults: { _controller: AstroBotBundle:Default:index }
+    
+astro_bot_zodiac:
+    prefix: /
+    type: annotation
+    resource: "@AppBundle/Controller/ZodiacController"

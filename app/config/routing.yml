@@ -1,7 +1,8 @@
-astro_bot:
-    resource: "@AstroBotBundle/Resources/config/routing.yml"
-    prefix:   /
+#astro_bot:
+#    resource: "@AstroBotBundle/Resources/config/routing.yml"
+#    prefix:   /
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+astro_bot_zodiac:
+    
+    type: annotation
+    resource: "@AstroBotBundle/Controller/"
